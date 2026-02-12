@@ -1,18 +1,148 @@
-…or create a new repository on the command line
-echo "# CMakeP1" >> README.md
+查看远程仓库地址
+git remote -v
+
+PS D:\jcj_index> cmake --preset default
+
+
+
+查看日志
+git log --oneline
+
+
+彻底删除（连同代码修改一起丢弃）：
+git reset --hard HEAD~1
+
+
+只删除提交记录，保留代码修改
+git reset --soft HEAD~1
+
+
+HEAD~1 代表回退到上一个提交。如果想删除最近 3 个提交，改为 HEAD~3
+git reset --soft HEAD~3
+
+git reset --hard 520b4c0
+
+
+git status
+
+
+git checkout 0800252d1bf4fd204b8f56e6487
+
+要查看当前所在的 Git 分支，可以使用以下命令：
+git branch
+git rev-parse --abbrev-ref HEAD
+
+# 清理未跟踪的文件和目录
+git clean -fd
+# 重置工作区
+git reset --hard
+
+
+# 1. 丢弃工作区的修改（让文件变回未修改状态）
+git checkout -- jcj_index/include/StdFunction.h jcj_index/src/StdFunction.cpp
+
+# 或者如果你想把所有未提交的修改全部丢弃，可以用：
+# git reset --hard
+
+# 2. 现在工作区干净了，可以正常拉取
+git pull
+
+
+
+git clone git@codeup.aliyun.com:cerium/radium/jcj_index.git
+         
+
+查看工作区/暂存区状态
+git status
+  
+看版本列表
+git log
+
+f35974d
+
+还原到一个版本
+git checkout f35974d 
+
+查看冲突的文件
+git diff
+
+把删除的文件在还原回来
+git checkout 9234981  src/JCJIndex/StdFunction.cpp
+
+
+暂时存储 没提交的缓存
+git stash
+git pull origin master
+git stash pop
+
+
+
+ 设置用户名
+git config --global user.name "mayingkun10"
+
+设置邮箱
+git config --global user.email "453635970@qq.com"
+
+生成rsa秘钥
+ssh-keygen -t rsa -C "453635970@qq.com"
+
+测试SSH key
+ssh -T git@github.com
+
+本地生成多个SSH key， 配置 config 文件
+touch config
+
+config文件内容 
+# codeup
+Host codeup.aliyun.com　
+HostName codeup.aliyun.com　　
+PreferredAuthentications publickey  
+IdentityFile ~/.ssh/id_rsa
+
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/github_rsa
+
+
+
+git clone git@codeup.aliyun.com:cerium/radium/other/jcj_rise_signal.git
+
+
+git remote -v
+
 git init
 git add .
 git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:453635970/CMakeP1.git
-git push -u origin main
+git remote add origin git@github.com:453635970/yk28.git
+git push -u origin master
+
+git switch main
+git switch costfun
+
+git switch compiler
+git switch grammar
+
+.检查是否存在本地分支
+git branch
+.创建一个新的本地分支
+git checkout -b temp
+.将主分支重命名为“master”
+git branch -m master
+.将临时分支合并入新的“master”分支
+git merge temp
 
 
-…or push an existing repository from the command line
-git remote add origin git@github.com:453635970/CMakeP1.git
-git branch -M main
-git push -u origin main
+git pull origin master
+
+git push origin master
+
+git push -u origin costfun
+
+# 基于当前分支（通常是 master/main）创建新分支，同时切换到该分支
+git checkout -b 新分支名
 
 
-git pull origin main --allow-unrelated-histories
-这个命令会强制合并两个不相关的仓库历史。执行后：
+
+
